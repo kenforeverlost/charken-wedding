@@ -1,0 +1,67 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { LoadingRing } from "@components/icons";
+
+import { supabase } from "@lib/supabase";
+
+export default function BucketGallery({ ...props }: any) {
+  const [photoList, setPhotoList] = useState<any>([]);
+
+  const bucket = "gallery";
+  const folder = props.folder;
+  const baseUrl = `https://pgxsgipgapowrxizqqlh.supabase.co/storage/v1/object/public/${bucket}/${folder}/`;
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const { data, error } = await supabase.storage.from(bucket).list(folder, {
+        limit: 100,
+        offset: 0,
+        sortBy: {
+          column: "name",
+          order: "asc",
+        },
+      });
+
+      data.filter(() => {
+        (photo) => photo.name !== ".emptyFolderPlaceholder";
+      });
+
+      if (data) {
+        setPhotoList(data);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  return (
+    <main className={`flex flex-col gap-16 w-full animate-fade`}>
+      {photoList?.length === 0 ? (
+        <div className="flex justify-center w-full">
+          <LoadingRing
+            className={`w-20 h-20 text-slate-100 animate-spin dark:text-slate-600 fill-primary`}
+          />
+        </div>
+      ) : (
+        <div className={`flex flex-wrap w-full animate-fade`}>
+          {photoList.map((photo, key) => {
+            return (
+              <div className="w-full sm:w-1/2 md:w-1/4">
+                <div className="p-1 flex justify-center items-center">
+                  <a href={`${baseUrl}${photo.name}`} target="_blank">
+                    <img
+                      key={key}
+                      src={`${baseUrl}${photo.name}`}
+                      className="aspect-square w-full object-cover cursor-pointer"
+                    />
+                  </a>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
+    </main>
+  );
+}

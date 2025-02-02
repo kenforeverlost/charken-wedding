@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+a {
+  color: #800000;
+}
+
+.text-black-override {
+  color: #000000 !important;
+}
+
+.timeline-item-title.active {
+  color: #000058 !important;
+  background-color: transparent !important;
+}
+
+.timeline-vertical-circle > .active {
+  background: white !important;
+  cursor: auto;
+}
+.timeline-vertical-circle > div {
+  background: white !important;
+  cursor: auto;
+}
