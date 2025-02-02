@@ -6,42 +6,42 @@ const weddingPartyItems = [
   {
     name: 'Ashley Marks',
     title: 'Matron of Honor',
-    img: 'https://pgxsgipgapowrxizqqlh.supabase.co/storage/v1/object/public/img/wedding-party/AM.jpg',
+    img: 'https://exiknbsnihiuomwzvubu.supabase.co/storage/v1/object/public/images/wedding/wedding-party/AM.jpg',
   },
   {
     name: 'Maui Robinson',
     title: 'Best Lady',
-    img: 'https://pgxsgipgapowrxizqqlh.supabase.co/storage/v1/object/public/img/wedding-party/MR.jpg',
+    img: 'https://exiknbsnihiuomwzvubu.supabase.co/storage/v1/object/public/images/wedding/wedding-party/MR.jpg',
   },
   {
     name: 'Quinton Locklear',
     title: 'Man of Honor',
-    img: 'https://pgxsgipgapowrxizqqlh.supabase.co/storage/v1/object/public/img/wedding-party/QL.jpg',
+    img: 'https://exiknbsnihiuomwzvubu.supabase.co/storage/v1/object/public/images/wedding/wedding-party/QL.jpg',
   },
   {
     name: 'Marcel Daggs',
     title: 'Best Man',
-    img: 'https://pgxsgipgapowrxizqqlh.supabase.co/storage/v1/object/public/img/wedding-party/MD.jpg',
+    img: 'https://exiknbsnihiuomwzvubu.supabase.co/storage/v1/object/public/images/wedding/wedding-party/MD.jpg',
   },
   {
     name: 'Jazelle Edobor',
     title: 'Bridesmaid',
-    img: 'https://pgxsgipgapowrxizqqlh.supabase.co/storage/v1/object/public/img/wedding-party/JE.jpg',
+    img: 'https://exiknbsnihiuomwzvubu.supabase.co/storage/v1/object/public/images/wedding/wedding-party/JE.jpg',
   },
   {
     name: 'Edwin Cerna',
     title: 'Groomsman',
-    img: 'https://pgxsgipgapowrxizqqlh.supabase.co/storage/v1/object/public/img/wedding-party/EC.jpg',
+    img: 'https://exiknbsnihiuomwzvubu.supabase.co/storage/v1/object/public/images/wedding/wedding-party/EC.jpg',
   },
   {
     name: 'Jozelle Mangibin',
     title: 'Bridesmaid',
-    img: 'https://pgxsgipgapowrxizqqlh.supabase.co/storage/v1/object/public/img/wedding-party/JM.jpg',
+    img: 'https://exiknbsnihiuomwzvubu.supabase.co/storage/v1/object/public/images/wedding/wedding-party/JM.jpg',
   },
   {
     name: 'Jermaine Kelly',
     title: 'Groomsman',
-    img: 'https://pgxsgipgapowrxizqqlh.supabase.co/storage/v1/object/public/img/wedding-party/JK.jpg',
+    img: 'https://exiknbsnihiuomwzvubu.supabase.co/storage/v1/object/public/images/wedding/wedding-party/JK.jpg',
   },
 ]
 

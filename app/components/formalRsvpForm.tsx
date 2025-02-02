@@ -41,8 +41,6 @@ export default function FormalRsvpForm({ ...props }: any) {
   ]
 
   const updateRsvpGroup = (updatedPerson: any, rsvpGroupDataIndex: number) => {
-    console.log(updatedPerson)
-    console.log(rsvpGroupDataIndex)
     let currentGroupData = JSON.parse(JSON.stringify(rsvpGroupData))
 
     if (updatedPerson?.rsvp == 'no') {
@@ -156,7 +154,7 @@ export default function FormalRsvpForm({ ...props }: any) {
     rsvpGroupData.map(async (person, index) => {
       if (updateIndexArray.includes(index)) {
         const { data, error } = await supabase
-          .from('guestlist')
+          .from('wedding_guestlist')
           .update({ ...person })
           .eq('id', person.id)
 
@@ -177,13 +175,10 @@ export default function FormalRsvpForm({ ...props }: any) {
         }
 
         setUpdateIndexArray([])
-        setProcessing(false)
       }
     })
+    setProcessing(false)
   }
-
-  let welcomeParty = process.env.NEXT_PUBLIC_WELCOME_PARTY_LOCATION
-  let welcomePartyLink = process.env.NEXT_PUBLIC_WELCOME_PARTY_LOCATION_LINK
 
   let isMissingInput = false
   let atleastOneYes = rsvpGroupData.some((item) => item.rsvp === 'yes')
@@ -309,7 +304,10 @@ export default function FormalRsvpForm({ ...props }: any) {
                       <div className="flex flex-col gap-2">
                         {foodChoices.map((foodData, foodDataIndex) => {
                           return (
-                            <label className="label cursor-pointer flex flex-col justify-start items-start gap-3">
+                            <label
+                              key={foodDataIndex}
+                              className="label cursor-pointer flex flex-col justify-start items-start gap-3"
+                            >
                               <div className="flex flex-row gap-5 justify-start items-center">
                                 <input
                                   type="radio"
@@ -394,9 +392,12 @@ export default function FormalRsvpForm({ ...props }: any) {
                         </div>
                       </div>
                       <div className="flex flex-col gap-2">
-                        {['yes', 'no'].map((welcomePartyOption) => {
+                        {['yes', 'no'].map((welcomePartyOption, index) => {
                           return (
-                            <label className="label cursor-pointer flex flex-row gap-5 justify-start">
+                            <label
+                              key={index}
+                              className="label cursor-pointer flex flex-row gap-5 justify-start"
+                            >
                               <input
                                 type="radio"
                                 name={`welcome-party-${person.id}`}

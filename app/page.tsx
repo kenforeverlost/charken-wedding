@@ -18,7 +18,7 @@ const cursiveText = Allura({
 
 export default function Home() {
   let headerImage =
-    'https://pgxsgipgapowrxizqqlh.supabase.co/storage/v1/object/public/img/engagement-shoot/engagement-117.jpg?t=2024-07-14T03%3A22%3A07.070Z'
+    'https://exiknbsnihiuomwzvubu.supabase.co/storage/v1/object/public/images/wedding/engagement-shoot/engagement-117.jpg'
 
   return (
     <main className="flex flex-col w-full min-h-screen items-center">

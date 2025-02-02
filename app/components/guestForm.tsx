@@ -27,7 +27,7 @@ export default function GuestForm() {
     textClass: '',
   })
 
-  let useFormalRsvp = process.env.NEXT_PUBLIC_USE_FORMAL_RSVP === 'true'
+  let useFormalRsvp = process.env.NEXT_PUBLIC_WEDDING_USE_FORMAL_RSVP === 'true'
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -53,7 +53,7 @@ export default function GuestForm() {
           })
           setSearchResponse({
             result: true,
-            message: `Did you mean ${response?.data?.first_name} ${response?.data?.last_name}?`,
+            message: response.message,
             textClass: 'text-warning',
           })
         } else {
@@ -62,15 +62,14 @@ export default function GuestForm() {
           setRsvpGroupData(response?.groupData)
           setSearchResponse({
             result: true,
-            message: 'Invitation found!',
+            message: response.message,
             textClass: 'text-success',
           })
         }
       } else {
         setSearchResponse({
           result: false,
-          message:
-            'We are having trouble finding your invite. Please try another spelling of your name or contact us.',
+          message: response.message,
           textClass: 'text-error',
         })
       }

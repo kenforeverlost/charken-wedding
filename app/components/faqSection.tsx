@@ -4,10 +4,6 @@ import { useEffect, useState } from 'react'
 import { Unna } from 'next/font/google'
 import DOMPurify from 'dompurify'
 
-import Content from '@components/main/content'
-import Header from '@components/main/header'
-import Footer from '@components/main/footer'
-
 import { LoadingRing } from '@components/icons'
 
 import { supabase } from '@lib/supabase'
@@ -19,44 +15,37 @@ const mainText = Unna({
 })
 
 export default function FaqSection() {
+  const [processing, setProcessing] = useState<boolean>(false)
   const [questions, setQuestions] = useState<any>([])
 
   useEffect(() => {
     const fetchData = async () => {
-      let sessionData = JSON.parse(sessionStorage.getItem('faqData'))
-      let isSessionDataSet = sessionData && sessionData?.length > 0
+      const { data: faqData, error } = await supabase
+        .from('wedding_faq')
+        .select()
+        .order('order', { ascending: true })
 
-      if (!isSessionDataSet || process.env.NODE_ENV === 'development') {
-        const { data: faqData, error } = await supabase
-          .from('faq')
-          .select()
-          .order('order', { ascending: true })
-
-        let faqDataItems = []
-
-        faqData.map(function (value) {
-          faqDataItems.push(value)
-        })
-
-        sessionStorage.setItem('faqData', JSON.stringify(faqDataItems))
-        setQuestions(faqDataItems)
-      } else {
-        setQuestions(sessionData)
+      if (faqData || error) {
+        setQuestions(faqData)
+        setProcessing(false)
       }
     }
 
     fetchData()
   }, [])
 
-  let displayQuestions = questions?.length === 0
-
   return (
     <>
-      {displayQuestions ? (
+      {processing ? (
         <div className="flex justify-center w-full">
           <LoadingRing
             className={`w-20 h-20 text-slate-100 animate-spin dark:text-slate-600 fill-primary`}
           />
+        </div>
+      ) : !questions || questions.length === 0 ? (
+        <div className="flex justify-center w-full">
+          Our frequently asked questions are unavailable at this time :( Check
+          back later!
         </div>
       ) : (
         <div className={`flex flex-col gap-16 w-full animate-fade`}>

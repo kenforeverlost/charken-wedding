@@ -1,82 +1,82 @@
-import { Allura, Unna } from "next/font/google";
-import Content from "@components/main/content";
-import Header from "@components/main/header";
-import Footer from "@components/main/footer";
-import { isRoomBlockActive, isRsvpActive } from "@lib/helpers";
+import { Allura, Unna } from 'next/font/google'
+import Content from '@components/main/content'
+import Header from '@components/main/header'
+import Footer from '@components/main/footer'
+import { isRoomBlockActive, isRsvpActive } from '@lib/helpers'
 
 const cursiveText = Allura({
-  subsets: ["latin"],
-  display: "swap",
-  weight: "400",
-});
+  subsets: ['latin'],
+  display: 'swap',
+  weight: '400',
+})
 
 const mainText = Unna({
-  subsets: ["latin"],
-  display: "swap",
-  weight: "400",
-});
+  subsets: ['latin'],
+  display: 'swap',
+  weight: '400',
+})
 
 export default function Home() {
   const headerImage =
-    "https://pgxsgipgapowrxizqqlh.supabase.co/storage/v1/object/public/img/wedding/Charmaigne-Kendrick-Highlights-40.jpg";
+    'https://exiknbsnihiuomwzvubu.supabase.co/storage/v1/object/public/images/wedding/we-are-married.jpg'
 
-  const roomBlockActive = isRoomBlockActive();
-  const rsvpActive = isRsvpActive();
+  const roomBlockActive = isRoomBlockActive()
+  const rsvpActive = isRsvpActive()
 
   const vendors = [
     {
-      name: "Planning & Design",
-      ig: "taramarieevents",
+      name: 'Planning & Design',
+      ig: 'taramarieevents',
     },
     {
-      name: "Photography & Videography",
-      ig: "susieandwill",
+      name: 'Photography & Videography',
+      ig: 'susieandwill',
     },
     {
-      name: "Florals",
-      ig: "blooms_by_sirce",
+      name: 'Florals',
+      ig: 'blooms_by_sirce',
     },
     {
-      name: "Entertainment",
-      ig: "djlivinh",
+      name: 'Entertainment',
+      ig: 'djlivinh',
     },
     {
-      name: "Hair & Make Up",
-      ig: "hairandmakeuplasvegas",
+      name: 'Hair & Make Up',
+      ig: 'hairandmakeuplasvegas',
     },
     {
-      name: "Bridal Hair",
-      ig: "jen.maneartist",
+      name: 'Bridal Hair',
+      ig: 'jen.maneartist',
     },
     {
-      name: "Drapes",
-      ig: "byancaseventdecor",
+      name: 'Drapes',
+      ig: 'byancaseventdecor',
     },
     {
-      name: "Dance Floor & Rentals",
-      ig: "rsvppartyrentals",
+      name: 'Dance Floor & Rentals',
+      ig: 'rsvppartyrentals',
     },
     {
-      name: "Photo Booth",
-      ig: "fromear2earbooth",
+      name: 'Photo Booth',
+      ig: 'fromear2earbooth',
     },
     {
-      name: "Transport",
-      ig: "jaylimovegas",
+      name: 'Transport',
+      ig: 'jaylimovegas',
     },
     {
-      name: "Tuxedo",
-      ig: "suitsupply",
+      name: 'Tuxedo',
+      ig: 'suitsupply',
     },
     {
-      name: "Dress",
-      ig: "thedresserbridal",
+      name: 'Dress',
+      ig: 'thedresserbridal',
     },
     {
-      name: "Dress Alterations",
-      ig: "sondrafalkcoutureofficial",
+      name: 'Dress Alterations',
+      ig: 'sondrafalkcoutureofficial',
     },
-  ];
+  ]
 
   return (
     <main className="flex flex-col w-full min-h-screen items-center">
@@ -101,10 +101,10 @@ export default function Home() {
               and presence on our special day!
               <br />
               <br />
-              Check out the{" "}
+              Check out the{' '}
               <a href="/gallery" className="underline">
                 photos
-              </a>{" "}
+              </a>{' '}
               from our big day!
             </div>
           </div>
@@ -120,7 +120,7 @@ export default function Home() {
               {vendors.map((vendor) => {
                 return (
                   <div>
-                    {vendor.name}:{" "}
+                    {vendor.name}:{' '}
                     <a
                       href={`https://www.instagram.com/${vendor.ig}/`}
                       target="_blank"
@@ -128,7 +128,7 @@ export default function Home() {
                       @{vendor.ig}
                     </a>
                   </div>
-                );
+                )
               })}
             </div>
           </div>
@@ -136,5 +136,5 @@ export default function Home() {
       </Content>
       <Footer />
     </main>
-  );
+  )
 }

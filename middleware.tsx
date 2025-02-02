@@ -8,7 +8,7 @@ export function middleware(request: NextRequest) {
   let path = request.nextUrl.pathname
   let isLoggedIn = sessionData && sessionData?.loggedIn
 
-  if (process.env.NEXT_PUBLIC_REQUIRE_PASSWORD === 'true') {
+  if (process.env.NEXT_PUBLIC_WEDDING_REQUIRE_PASSWORD === 'true') {
     if (!isLoggedIn && path !== '/' && path !== '/registry') {
       return NextResponse.redirect(new URL('/', request.url))
     } else if (isLoggedIn && path == '/') {

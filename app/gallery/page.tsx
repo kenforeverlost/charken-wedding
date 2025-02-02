@@ -1,14 +1,14 @@
-import { Unna } from "next/font/google";
-import Content from "@components/main/content";
-import Header from "@components/main/header";
-import Footer from "@components/main/footer";
-import BucketGallery from "@components/bucketGallery";
+import { Unna } from 'next/font/google'
+import Content from '@components/main/content'
+import Header from '@components/main/header'
+import Footer from '@components/main/footer'
+import BucketGallery from '@components/bucketGallery'
 
 const mainText = Unna({
-  subsets: ["latin"],
-  display: "swap",
-  weight: "400",
-});
+  subsets: ['latin'],
+  display: 'swap',
+  weight: '400',
+})
 
 export default function Gallery() {
   return (
@@ -24,11 +24,11 @@ export default function Gallery() {
         </div>
         <div className="flex flex-col gap-16 w-full">
           <div className="flex flex-col gap-6">
-            <BucketGallery folder="highlights" />
+            <BucketGallery bucket="images" folder="wedding/highlights" />
           </div>
         </div>
         <div className="text-center">
-          View more of our favorite photos and candids{" "}
+          View more of our favorite photos and candids{' '}
           <a
             href="https://www.dropbox.com/scl/fo/m486box1jgsh4zxo77vxn/AOn-Cd_0b282l3OunzsyfFA?rlkey=nq0pwxrl70dz9ll8mab0am2li&st=0ezecnkr&dl=0"
             target="_blank"
@@ -40,5 +40,5 @@ export default function Gallery() {
       </Content>
       <Footer />
     </main>
-  );
+  )
 }

@@ -7,22 +7,19 @@ import { Chrono } from '@lib/chrono'
 import { supabase } from '@lib/supabase'
 
 export default function TimelineStory() {
-  const [processing, setProcessing] = useState<boolean>(false)
+  const [processing, setProcessing] = useState<boolean>(true)
   const [timelineStoryItems, setTimelineStoryItems] = useState<any>([])
 
   useEffect(() => {
     const fetchData = async () => {
-      let sessionData = JSON.parse(sessionStorage.getItem('timelineStoryItems'))
-      let isSessionDataSet = sessionData && sessionData?.length > 0
+      const { data: timelineStory, error } = await supabase
+        .from('wedding_timeline_story')
+        .select()
+        .order('date', { ascending: true })
 
-      if (!isSessionDataSet) {
-        const { data: timelineStory, error } = await supabase
-          .from('timeline_story')
-          .select()
-          .order('date', { ascending: true })
+      let timelineStoryItems = []
 
-        let timelineStoryItems = []
-
+      if (timelineStory || error) {
         timelineStory.map(function (value) {
           let dateInfo = value.date.split('-')
           let dateDisplay = `${dateInfo[1]} · ${dateInfo[2]} · ${dateInfo[0]}`
@@ -45,8 +42,7 @@ export default function TimelineStory() {
           JSON.stringify(timelineStoryItems),
         )
         setTimelineStoryItems(timelineStoryItems)
-      } else {
-        setTimelineStoryItems(sessionData)
+        setProcessing(false)
       }
     }
 
@@ -55,11 +51,15 @@ export default function TimelineStory() {
 
   return (
     <div style={{ margin: '0 -2.25rem' }}>
-      {timelineStoryItems?.length === 0 ? (
+      {processing ? (
         <div className="flex justify-center w-full">
           <LoadingRing
             className={`w-20 h-20 text-slate-100 animate-spin dark:text-slate-600 fill-primary`}
           />
+        </div>
+      ) : !timelineStoryItems || timelineStoryItems.length === 0 ? (
+        <div className="flex justify-center w-full">
+          Our story is unavailable at this time :( Check back later!
         </div>
       ) : (
         <Chrono

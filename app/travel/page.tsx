@@ -30,7 +30,7 @@ export default function Travel() {
       googleMap: 'https://maps.app.goo.gl/Rw1KkvCLyWe5N4Ds8',
       phone: '+17027977777',
       phoneDisplay: '+1 (702) 797-7777',
-      img: 'https://pgxsgipgapowrxizqqlh.supabase.co/storage/v1/object/public/img/red-rock-casino.jpg',
+      img: 'https://exiknbsnihiuomwzvubu.supabase.co/storage/v1/object/public/images/wedding/red-rock-casino.jpg',
       website: roomBlockActive
         ? 'https://book.passkey.com/e/50757537'
         : 'https://book.passkey.com/e/50757537',
@@ -42,7 +42,7 @@ export default function Travel() {
       googleMap: 'https://maps.app.goo.gl/k65bpWMvYubBmiWX9',
       phone: '+17022563766',
       phoneDisplay: '+1 (702) 256-3766',
-      img: 'https://pgxsgipgapowrxizqqlh.supabase.co/storage/v1/object/public/img/best-western-plus.jpg',
+      img: 'https://exiknbsnihiuomwzvubu.supabase.co/storage/v1/object/public/images/wedding/best-western-plus.jpg',
       website:
         'https://www.bestwestern.com/en_US/book/hotel-rooms.29084.html?iata=00171880&ssob=BLBWI0004G&cid=BLBWI0004G:google:gmb:29084',
     },
@@ -53,7 +53,7 @@ export default function Travel() {
       googleMap: 'https://maps.app.goo.gl/bBaRSuNQgeM5WCRp9',
       phone: '+17022430356',
       phoneDisplay: '+1 (702) 243-0356',
-      img: 'https://pgxsgipgapowrxizqqlh.supabase.co/storage/v1/object/public/img/la-quinta.jpg?t=2024-03-03T21%3A22%3A51.694Z',
+      img: 'https://exiknbsnihiuomwzvubu.supabase.co/storage/v1/object/public/images/wedding/la-quinta.jpg?t=2024-03-03T21%3A22%3A51.694Z',
       website:
         'https://www.wyndhamhotels.com/laquinta/las-vegas-nevada/la-quinta-las-vegas-redrock-summerlin/overview?CID=LC:6ysy27krtpcrqev:52964&iata=00093796',
     },
@@ -64,13 +64,13 @@ export default function Travel() {
       googleMap: 'https://maps.app.goo.gl/yYiJZvQAuMASW2jq6',
       phone: '+17022615211',
       phoneDisplay: '+1 (702) 261-5211',
-      img: 'https://pgxsgipgapowrxizqqlh.supabase.co/storage/v1/object/public/img/airport.jpg',
+      img: 'https://exiknbsnihiuomwzvubu.supabase.co/storage/v1/object/public/images/wedding/airport.jpg',
       website: 'https://www.harryreidairport.com/',
     },
   ]
 
   let redRockCasino =
-    'https://pgxsgipgapowrxizqqlh.supabase.co/storage/v1/object/public/img/red-rock-casino.jpg'
+    'https://exiknbsnihiuomwzvubu.supabase.co/storage/v1/object/public/images/wedding/red-rock-casino.jpg'
 
   return (
     <main className="flex flex-col w-full min-h-screen items-center">

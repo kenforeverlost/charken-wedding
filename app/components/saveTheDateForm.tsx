@@ -40,7 +40,7 @@ export default function SaveTheDateForm({ ...props }: any) {
     rsvpGroupData.map(async (person, index) => {
       if (updateIndexArray.includes(index)) {
         const { data, error } = await supabase
-          .from('guestlist')
+          .from('wedding_guestlist')
           .update({ ...person })
           .eq('id', person.id)
 
