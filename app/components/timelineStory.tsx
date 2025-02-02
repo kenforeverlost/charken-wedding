@@ -42,8 +42,8 @@ export default function TimelineStory() {
           JSON.stringify(timelineStoryItems),
         )
         setTimelineStoryItems(timelineStoryItems)
-        setProcessing(false)
       }
+      setProcessing(false)
     }
 
     fetchData()
