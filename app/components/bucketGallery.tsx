@@ -24,11 +24,14 @@ export default function BucketGallery({ ...props }: any) {
         },
       })
 
-      data.filter((photo) => photo.name !== '.emptyFolderPlaceholder')
+      if (data && !error) {
+        data.filter((photo) => photo.name !== '.emptyFolderPlaceholder')
 
-      if (data) {
-        setPhotoList(data)
+        if (data) {
+          setPhotoList(data)
+        }
       }
+
       setProcessing(false)
     }
 

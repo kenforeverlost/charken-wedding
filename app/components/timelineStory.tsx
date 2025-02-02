@@ -19,7 +19,7 @@ export default function TimelineStory() {
 
       let timelineStoryItems = []
 
-      if (timelineStory || error) {
+      if (timelineStory && !error) {
         timelineStory.map(function (value) {
           let dateInfo = value.date.split('-')
           let dateDisplay = `${dateInfo[1]} · ${dateInfo[2]} · ${dateInfo[0]}`

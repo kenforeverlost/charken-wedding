@@ -25,10 +25,10 @@ export default function FaqSection() {
         .select()
         .order('order', { ascending: true })
 
-      if (faqData || error) {
+      if (faqData && !error) {
         setQuestions(faqData)
-        setProcessing(false)
       }
+      setProcessing(false)
     }
 
     fetchData()
